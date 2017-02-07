@@ -1,5 +1,8 @@
 <?php
     include '../config.php';
+	$query = "SELECT studentNo, studentLN, studentFN AS studentName, studentEmail, studentCourse, studentEmail, studentStatus, dateCreated, dateModified FROM users";
+
+	$results = mysqli_query($con, $query);
 ?>
 <!DOCTYPE html>
 <html>
