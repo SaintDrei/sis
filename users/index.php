@@ -1,6 +1,6 @@
 <?php
     include '../config.php';
-	$query = "SELECT studentNo, studentLN, studentFN AS studentName, studentEmail, studentCourse, studentEmail, studentStatus, dateCreated, dateModified FROM users";
+	$query = "SELECT studentNo, studentLN, studentFN, studentEmail, studentCourse, studentEmail, studentStatus, dateCreated, dateModified FROM users";
 
 	$results = mysqli_query($con, $query);
 ?>
@@ -8,8 +8,8 @@
 <html>
 	<head>
 		<title>View Users</title>
-		<link href="http://bootswatch.com/spacelab/bootstrap.min.css"
-			rel="stylesheet" />
+		<link href="http://bootswatch.com/spacelab/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
 		<link href="http://bootswatch.com/darkly/bootstrap.min.css" rel="stylesheet"/>
 	</head>
@@ -33,7 +33,7 @@
                         <?php
                             while ($row = mysqli_fetch_array($results)){
                                 $no = $row['studentNo'];
-                                $name = $row['studentLN'] + ', ' + $row['studentFN'];
+                                $name = $row['studentLN'] . ', ' . $row['studentFN'];
                                 $email = $row['studentEmail'];
                                 $course = $row['studentCourse'];
                                 $status = $row['studentStatus'];
@@ -48,7 +48,7 @@
                                         <td>" . $status . "</td>
                                         <td>" . $added->format('f d, Y g:A') . "</td>
                                         <td>" . $modified->format('f d, Y g:A') . "</td>
-                                        <td><a href='details.php?no='" . $no . "'>Edit</a></td>
+                                        <td><a class='btn btn-xs btn-info'  href='details.php?no=" . $no . "'><i class='fa fa-edit'></i></a></td>
                                     </tr>";
                                 
                                 
