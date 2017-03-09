@@ -12,13 +12,16 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
 		<link href="http://bootswatch.com/darkly/bootstrap.min.css" rel="stylesheet"/>
+        <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
             
 			<h1 class="text-center">View Users</h1>
             <div class="col-lg-12 well">
-                <table class="table table-hover">
+                <table id="tblUsers" class="table table-hover">
                     <thead>
                         <th>Student #</th>
                         <th>Name</th>
@@ -27,7 +30,7 @@
                         <th>Status</th>
                         <th>Added On</th>
                         <th>Last Modified</th>
-                        
+                        <th></th>
                     </thead>
                     <tbody>
                         <?php
@@ -59,5 +62,10 @@
             </div>
 			
 		</div>
+        <script>
+            $(document).ready(function(){
+                $('#tblUsers').DataTable();
+            })
+        </script>
 	</body>
 </html>
